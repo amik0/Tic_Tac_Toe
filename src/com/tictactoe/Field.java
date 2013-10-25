@@ -23,6 +23,14 @@ public class Field {
         this(DEFAULT_SIZE);
     }
 
+    public Field(Field field) {
+        this(field.fieldSize);
+        for (int i = 0; i < fieldSize; i++) {
+            for (int j = 0; j < fieldSize; j++) {
+                this.field[i][j] = field.getCell(i, j);
+            }
+        }
+    }
 
     private void clearField() {
         for (int i = 0; i < fieldSize; i++) {

@@ -6,7 +6,7 @@ public class Human extends Player {
 
 	public Cell getMove(Field field) {
         Cell move = new Cell();
-        System.out.print("Enter your move (1-" +  (field.fieldSize * field.fieldSize + 1) + "): ");
+        System.out.print("Enter your move (1-" +  (field.fieldSize * field.fieldSize) + "): ");
         Scanner scan = new Scanner(System.in);
         int userValue = scan.nextInt();
         if (userValue > 0 && userValue < (field.fieldSize * field.fieldSize + 1)) {

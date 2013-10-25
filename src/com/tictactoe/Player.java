@@ -1,14 +1,12 @@
 package com.tictactoe;
 
-public class Player {
+public abstract class Player {
 
-	private String name;
+	protected String name;
 
-	private char playerSymbol;
+	protected char playerSymbol;
 
-	public Cell getMove(Field field) {
-		return null;
-	}
+	public abstract Cell getMove(Field field);
 
 	public void setPlayerSymbol(char symbol) {
         playerSymbol = symbol;
