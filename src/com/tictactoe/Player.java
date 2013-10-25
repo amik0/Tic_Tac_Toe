@@ -18,4 +18,11 @@ public class Player {
         this.name = name;
 	}
 
+    public char getPlayerSymbol() {
+        return playerSymbol;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
