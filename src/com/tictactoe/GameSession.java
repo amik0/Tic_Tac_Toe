@@ -1,7 +1,7 @@
 package com.tictactoe;
 
-import java.util.HashMap;
-import java.util.Map;
+//import java.util.HashMap;
+//import java.util.Map;
 
 public class GameSession {
 
@@ -70,75 +70,75 @@ public class GameSession {
         char p1Symbol = player1.getPlayerSymbol();
         char p2Symbol = player2.getPlayerSymbol();
         for (int i = 0; i < field.fieldSize; i++) {
-            Map<Character, Integer> counter = new HashMap<Character, Integer>();
+            int p1Counter = 0;
+            int p2Counter = 0;
             for (int j = 0; j < field.fieldSize; j++) {
                 char c = field.getCell(i, j);
-                if (counter.containsValue(c)) {
-                    counter.put(c, counter.get(c) + 1);
-                } else {
-                    counter.put(c, 1);
+                if (c == p1Symbol) {
+                    p1Counter++;
+                }
+                if (c == p2Symbol) {
+                    p2Counter++;
                 }
             }
-            if (counter.get(p1Symbol) != null &&
-                counter.get(p1Symbol) == field.fieldSize) {
+            if (p1Counter == field.fieldSize) {
                 return p1Symbol;
             }
-            if (counter.get(p2Symbol) != null &&
-                    counter.get(p2Symbol) == field.fieldSize) {
+            if (p2Counter == field.fieldSize) {
                 return p2Symbol;
             }
         }
         for (int j = 0; j < field.fieldSize; j++) {
-            Map<Character, Integer> counter = new HashMap<Character, Integer>();
+            int p1Counter = 0;
+            int p2Counter = 0;
             for (int i = 0; i < field.fieldSize; i++) {
                 char c = field.getCell(i, j);
-                if (counter.containsValue(c)) {
-                    counter.put(c, counter.get(c) + 1);
-                } else {
-                    counter.put(c, 1);
+                if (c == p1Symbol) {
+                    p1Counter++;
+                }
+                if (c == p2Symbol) {
+                    p2Counter++;
                 }
             }
-            if (counter.get(p1Symbol) != null &&
-                    counter.get(p1Symbol) == field.fieldSize) {
+            if (p1Counter == field.fieldSize) {
                 return p1Symbol;
             }
-            if (counter.get(p2Symbol) != null &&
-                    counter.get(p2Symbol) == field.fieldSize) {
+            if (p2Counter == field.fieldSize) {
                 return p2Symbol;
             }
         }
-        Map<Character, Integer> counter = new HashMap<Character, Integer>();
+        int p1Counter = 0;
+        int p2Counter = 0;
         for (int i = 0; i < field.fieldSize; i++) {
             char c = field.getCell(i, i);
-            if (counter.containsValue(c)) {
-                counter.put(c, counter.get(c) + 1);
-            } else {
-                counter.put(c, 1);
+            if (c == p1Symbol) {
+                p1Counter++;
+            }
+            if (c == p2Symbol) {
+                p2Counter++;
             }
         }
-        if (counter.get(p1Symbol) != null &&
-                counter.get(p1Symbol) == field.fieldSize) {
+        if (p1Counter == field.fieldSize) {
             return p1Symbol;
         }
-        if (counter.get(p2Symbol) != null &&
-                counter.get(p2Symbol) == field.fieldSize) {
+        if (p2Counter == field.fieldSize) {
             return p2Symbol;
         }
-        counter = new HashMap<Character, Integer>();
+        p1Counter = 0;
+        p2Counter = 0;
         for (int i = 0; i < field.fieldSize; i++) {
             char c = field.getCell(i, field.fieldSize - i - 1);
-            if (counter.containsValue(c)) {
-                counter.put(c, counter.get(c) + 1);
-            } else {
-                counter.put(c, 1);
+            if (c == p1Symbol) {
+                p1Counter++;
+            }
+            if (c == p2Symbol) {
+                p2Counter++;
             }
         }
-        if (counter.get(p1Symbol) != null &&
-                counter.get(p1Symbol) == field.fieldSize) {
+        if (p1Counter == field.fieldSize) {
             return p1Symbol;
         }
-        if (counter.get(p2Symbol) != null &&
-                counter.get(p2Symbol) == field.fieldSize) {
+        if (p2Counter == field.fieldSize) {
             return p2Symbol;
         }
         for (int j = 0; j < field.fieldSize; j++) {
