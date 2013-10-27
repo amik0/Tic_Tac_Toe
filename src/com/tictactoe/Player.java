@@ -23,4 +23,16 @@ public abstract class Player {
     public String getName() {
         return name;
     }
+
+    public abstract void wrongMoveWarning();
+
+    protected boolean backRequest = false;
+
+    public boolean isBackRequest() {
+        return backRequest;
+    }
+
+    public void backRequestOK() {
+        backRequest = false;
+    }
 }

@@ -96,4 +96,18 @@ public class AI extends Player {
     public void setEnemySymbol(char enemySymbol) {
         this.enemySymbol = enemySymbol;
     }
+
+    public void wrongMoveWarning() {
+
+    }
+
+    @Override
+    public boolean isBackRequest() {
+        return super.isBackRequest();
+    }
+
+    @Override
+    public void backRequestOK() {
+        backRequest = false;
+    }
 }
