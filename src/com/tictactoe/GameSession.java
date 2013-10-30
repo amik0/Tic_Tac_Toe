@@ -1,6 +1,7 @@
 package com.tictactoe;
 
 import java.util.Stack;
+import java.util.Random;
 
 public class GameSession {
 
@@ -26,10 +27,12 @@ public class GameSession {
         Field field = new Field();
         fieldsList.push(field);
         preparePlayers();
-        refreshScreen();
         char winSymbol = VictoryChecker.CONTINUE_SYMBOL;
         Player currentPlayer;
-        currentPlayer = player1;
+        currentPlayer = (player1.getPlayerSymbol() == 'X') ? player1 : player2;
+        if (currentPlayer instanceof Human) {
+            refreshScreen();
+        }
         do {
             Cell move;
             move = currentPlayer.getMove(fieldsList.peek());
@@ -72,15 +75,20 @@ public class GameSession {
 	private void preparePlayers() {
         player1 = new Human();
         player1.setPlayerName("Player 1");
-        player1.setPlayerSymbol('X');
-       // ((AI)player1).setEnemySymbol('0');
+        player2 = new AI(5);
+        player2.setPlayerName("AI");
+        Random random = new Random(System.currentTimeMillis());
+        if (random.nextInt(2) == 1) {
+            player1.setPlayerSymbol('X');
+            player2.setPlayerSymbol('0');
+            ((AI)player2).setEnemySymbol('X');
+        } else {
+            player1.setPlayerSymbol('0');
+            player2.setPlayerSymbol('X');
+            ((AI)player2).setEnemySymbol('0');
+        }
         System.out.println("You are " + player1.getName() + ". Your symbol is \"" + player1.getPlayerSymbol() + "\"");
         System.out.println("Cancel move - 0");
-        player2 = new AI(3);
-        player2.setPlayerName("AI");
-        player2.setPlayerSymbol('0');
-        ((AI)player2).setEnemySymbol('X');
-     //   System.out.println("You are " + player2.getName() + ". Your symbol is \"" + player2.getPlayerSymbol() + "\"");
         System.out.println("\"X\" moves first!");
     }
 
